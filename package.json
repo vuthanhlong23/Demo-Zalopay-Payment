@@ -4,7 +4,8 @@
   "description": "",
   "main": "zalopay.js",
   "scripts": {
-    "start": "nodemon zalopay.js",
+    "dev": "nodemon zalopay.js",
+    "start": "node zalopay.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
