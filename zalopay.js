@@ -47,6 +47,7 @@ for(let i = 0 ; i < items.length; i++) {
   total+= parseFloat(items[i].price * items[i].quantity);
 }
 
+//Tạo đơn hàng
 // APP INFO
 const config = {
   app_id: "2553",
@@ -61,7 +62,7 @@ const embed_data = {};
 const transID = Math.floor(Math.random() * 1000000);
 const order = {
   app_id: config.app_id,
-  app_trans_id: `${moment().format('YYMMDD')}_${transID}`, // translation missing: vi.docs.shared.sample_code.comments.app_trans_id
+  app_trans_id: `${moment().format('YYMMDD')}_${transID}`, 
   app_user: "user123",
   app_time: Date.now(), // miliseconds
   item: JSON.stringify(items),
@@ -86,11 +87,12 @@ axios.post(config.endpoint, null, { params: order })
   .catch(err => console.log(err));
 
 app.post('/pay', function(req, res) {
-  res.redirect(res.data.embed_data)
+  res.redirect('https://sbgateway.zalopay.vn/openinapp?order=eyJ6cHRyYW5zdG9rZW4iOiIyMTA4MDQwMDAwMDA4MjFYbzZ1bGsxIiwiYXBwaWQiOjI1NTN9')
+
 }); 
 
 //Callback
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());   
 
 app.post('/callback', (req, res) => {
     let result = {};
