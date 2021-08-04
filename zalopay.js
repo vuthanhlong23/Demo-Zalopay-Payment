@@ -86,7 +86,7 @@ axios.post(config.endpoint, null, { params: order })
   .catch(err => console.log(err));
 
 app.post('/pay', function(req, res) {
-  res.redirect('https://sbgateway.zalopay.vn/openinapp?order=eyJ6cHRyYW5zdG9rZW4iOiIyMTA4MDQwMDAwMDAwMjAxT3ZlU3JzIiwiYXBwaWQiOjI1NTN9')
+  res.redirect(res.data.embed_data)
 }); 
 
 //Callback
