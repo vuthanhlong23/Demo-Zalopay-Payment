@@ -1,0 +1,12 @@
+h1 Create user
+
+if errors 
+  each error in errors
+    .alert.alert-danger=error
+
+form(action="/users/post", method="POST")
+  label Name
+  input(type="text",name="name", value = values ? values.name : "")
+  label Phone
+  input(type="text",name="phone", value = values ? values.phone : "")
+  button Create
